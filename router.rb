@@ -4,6 +4,7 @@ Bundler.require
 class Router < Sinatra::Base
 
   configure do
+    set :root, File.expand_path(File.join(__FILE__, '..', 'static'))
     set :environment, :production
     set :port, 3000
   end
