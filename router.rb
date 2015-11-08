@@ -1,11 +1,17 @@
 require 'bundler'
 Bundler.require
 
+$: << File.expand_path(File.join(__FILE__, 'lib'))
+require 'lib/base'
+require 'lib/helper'
+
 class Router < Sinatra::Base
+  include Base
+  include Helper
 
   configure do
     set :root, File.expand_path(File.join(__FILE__, '..', 'static'))
-    set :environment, :production
+    set :environment, :development
     set :port, 3000
   end
 
